@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Domo28 - Votre Maison Intelligente</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* General styles */
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #e0f2f7, #ffffff);
+            color: #333;
+        }
+
+        #hero {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 50px;
+            background-image: url('https://i.imgur.com/7bhxyeY.gif');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            min-height: 100vh;
+        }
+
+        .hero-content {
+            max-width: 600px;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .hero-content h2 {
+            font-size: 2.5em;
+            color: #1565c0;
+        }
+
+        /* Neon Glowing Button */
+        .neon-button {
+            background-color: transparent;
+            color: #fff;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 20px;
+            border: 2px solid #2196f3;
+            font-size: 1.2em;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .neon-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300%;
+            height: 300%;
+            background: radial-gradient(circle, rgba(33, 150, 243, 0.8), transparent);
+            transition: all 0.5s ease;
+            z-index: -1;
+        }
+
+        .neon-button:hover::before {
+            width: 0;
+            height: 0;
+        }
+
+        .neon-button:hover {
+            color: #2196f3;
+            box-shadow: 0 0 10px #2196f3, 0 0 20px #2196f3, 0 0 40px #2196f3;
+        }
+
+        .hero-image {
+            width: 200px;
+            height: 200px;
+            perspective: 800px;
+        }
+
+        .face.front  { transform: translateZ(100px); }
+        .face.back   { transform: rotateY(180deg) translateZ(100px); }
+        .face.top    { transform: rotateX(90deg) translateZ(100px); }
+        .face.bottom { transform: rotateX(-90deg) translateZ(100px); }
+        .face.left   { transform: rotateY(-90deg) translateZ(100px); }
+        .face.right  { transform: rotateY(90deg) translateZ(100px); }
+
+        @keyframes rotateCube {
+            0% { transform: rotateX(0deg) rotateY(0deg); }
+            100% { transform: rotateX(360deg) rotateY(360deg); }
+        }
+
+        #features {
+            padding: 50px;
+            text-align: center;
+        }
+
+        .feature {
+            display: inline-block;
+            width: 30%;
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .feature i {
+            font-size: 3em;
+            color: #2196f3;
+            margin-bottom: 10px;
+        }
+
+        #contact {
+            background-color: #f5f5f5;
+            padding: 50px;
+            text-align: center;
+        }
+
+        .contact-info {
+            margin-top: 20px;
+        }
+
+        .contact-info a {
+            display: inline-block;
+            margin: 10px;
+            color: #2196f3;
+            text-decoration: none;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            #hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 20px;
+                background-image: url('https://i.imgur.com/7bhxyeY.gif'); /* Ensure the GIF is used on mobile */
+                background-size: cover;
+                background-position: center;
+            }
+
+            .hero-content {
+                max-width: 100%;
+            }
+
+            .hero-image {
+                margin-top: 30px;
+            }
+
+            .feature {
+                width: 80%;
+                margin: 10px 0;
+            }
+
+            .contact-info a {
+                display: block;
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <section id="hero">
+        <div class="hero-content">
+            <h2>Bienvenue dans l'ère de la maison connectée</h2>
+            <p>Domo28 vous offre une expérience résidentielle intelligente, intuitive et sécurisée. Contrôlez votre éclairage, chauffage, sécurité et plus encore, du bout des doigts.</p>
+            <a href="#" id="downloadVCard" class="neon-button">
+                <i class="fas fa-download"></i> Ajouter au Contact
+            </a>
+        </div>
+
+        <div class="hero-image">
+            <div class="cube">
+                <div class="face front"></div>
+                <div class="face back"></div>
+                <div class="face top"></div>
+                <div class="face bottom"></div>
+                <div class="face left"></div>
+                <div class="face right"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features">
+        <h2>Fonctionnalités</h2>
+        <div class="feature">
+            <i class="fas fa-lightbulb"></i>
+            <h3>Éclairage intelligent</h3>
+            <p>Créez l'ambiance parfaite pour chaque moment.</p>
+        </div>
+        <div class="feature">
+            <i class="fas fa-thermometer-half"></i>
+            <h3>Gestion du chauffage</h3>
+            <p>Optimisez votre confort et réduisez votre consommation d'énergie.</p>
+        </div>
+        <div class="feature">
+            <i class="fas fa-lock"></i>
+            <h3>Sécurité renforcée</h3>
+            <p>Protégez votre maison avec nos systèmes de sécurité avancés.</p>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contactez-nous</h2>
+        <p>Prêt à transformer votre maison en un espace intelligent ?</p>
+        <div class="contact-info">
+            <!-- Phone number clickable to dial -->
+            <a href="tel:+212669154235" id="phoneNumber"><i class="fas fa-phone"></i> +212669154235</a>
+            <!-- Download vCard link -->
+           
+            <!-- Email link -->
+            <a href="mailto:ali.belgamra@domo28.com"><i class="fas fa-envelope"></i> ali.belgamra@domo28.com</a>
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/domo_28" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+            <!-- Website -->
+            <a href="https://www.domo28.com" target="_blank" id="websiteButton"><i class="fas fa-globe"></i> Site Web</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Domo28. Tous droits réservés.</p>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+
+    <script>
+        // Function to download the vCard when the user clicks on "Télécharger le contact"
+        document.getElementById('downloadVCard').addEventListener('click', function(e) {
+            e.preventDefault();
+
+            const phoneNumber = '+212669154235'; // Phone number
+            const contactName = 'Domo28'; // Contact name
+            const email = 'ali.belgamra@domo28.com'; // Updated email address
+
+            // Create vCard data
+            const vCardData = `BEGIN:VCARD\nVERSION:3.0\nFN:${contactName}\nTEL:${phoneNumber}\nEMAIL:${email}\nEND:VCARD`;
+            
+            // Create a Blob from vCard data and generate a download link
+            const blob = new Blob([vCardData], { type: 'text/vcard;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+
+            // Create a temporary link and trigger the download
+            const link = document.createElement('a');
+            link.href = url;
+            link.setAttribute('download', 'Domo28.vcf'); // Filename of the vCard
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+
+            // Revoke the object URL after use
+            URL.revokeObjectURL(url);
+        });
+
+        // Redirect to the website only when the "Site Web" button is clicked
+        document.getElementById('websiteButton').addEventListener('click', function(e) {
+            e.preventDefault(); // Prevent default link behavior
+            window.location.href = "https://www.domo28.com"; // Redirect to the website
+        });
+    </script>
+
+</body>
+</html>
